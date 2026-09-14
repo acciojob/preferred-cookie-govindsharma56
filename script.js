@@ -13,11 +13,11 @@ if (fontSize) {
 }
 
 if (fontColor) {
-  document.body.style.color = fontcolor;
+  document.body.style.color = fontColor;
 }
 btn.addEventListener('click',()=>{
 let fontSize = document.getElementById("font-size").value;
 let fontColor = document.getElementById("font-color").value;
-   document.cookie = `fontSize=${fontSize}`;
-  document.cookie = `fontColor=${fontColor}`;
+   document.cookie = `fontsize=${fontSize}`;
+  document.cookie = `fontcolor=${fontColor}`;
 })
