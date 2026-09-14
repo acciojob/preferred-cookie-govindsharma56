@@ -30,8 +30,8 @@ if (fontColor) {
 
 // Save preferences
 btn.addEventListener("click", () => {
-  let fontSize = document.getElementById("font-size").value;
-  let fontColor = document.getElementById("font-color").value;
+  let fontSize = document.getElementById("fontsize").value;
+  let fontColor = document.getElementById("fontcolor").value;
 
   let expires = new Date();
   expires.setDate(expires.getDate() + 30);
