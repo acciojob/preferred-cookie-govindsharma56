@@ -20,7 +20,7 @@ let fontSize = getCookie("fontsize");
 let fontColor = getCookie("fontcolor");
 
 if (fontSize) {
-  document.body.style.fontSize = fontSize + "px";
+  document.body.style.setProperty("--fontsize", fontSize + "px");
 }
 
 if (fontColor) {
