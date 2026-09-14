@@ -9,11 +9,11 @@ fontSize = fontSize?.split("=")[1];
 fontColor = fontColor?.split("=")[1];
 
 if (fontSize) {
-  document.body.style.fontsize = fontSize + "px";
+  document.body.style.fontSize = fontSize + "px";
 }
 
 if (fontColor) {
-  document.body.style.color = fontColor;
+  document.body.style.color = fontcolor;
 }
 btn.addEventListener('click',()=>{
 let fontSize = document.getElementById("font-size").value;
