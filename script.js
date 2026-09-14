@@ -1,12 +1,23 @@
-//your JS code here. If required.
-let btn=document.getElementById('btn-save')
-let cookies = document.cookie.split("; ");
 
-let fontSize = cookies.find((cookie) => cookie.startsWith("fontsize="));
-let fontColor = cookies.find((cookie) => cookie.startsWith("fontcolor="));
+// your JS code here. If required.
 
-fontSize = fontSize?.split("=")[1];
-fontColor = fontColor?.split("=")[1];
+let btn = document.getElementById("btn-save");
+
+function getCookie(name) {
+  let cookies = document.cookie.split("; ");
+
+  let cookie = cookies.find((cookie) =>
+    cookie.startsWith(name + "=")
+  );
+
+  if (!cookie) return null;
+
+  return decodeURIComponent(cookie.split("=")[1]);
+}
+
+// Load saved preferences on page load
+let fontSize = getCookie("fontsize");
+let fontColor = getCookie("fontcolor");
 
 if (fontSize) {
   document.body.style.fontSize = fontSize + "px";
@@ -15,9 +26,20 @@ if (fontSize) {
 if (fontColor) {
   document.body.style.color = fontColor;
 }
-btn.addEventListener('click',()=>{
-let fontSize = document.getElementById("font-size").value;
-let fontColor = document.getElementById("font-color").value;
-   document.cookie = `fontsize=${fontSize}`;
-  document.cookie = `fontcolor=${fontColor}`;
-})
+
+
+// Save preferences
+btn.addEventListener("click", () => {
+  let fontSize = document.getElementById("font-size").value;
+  let fontColor = document.getElementById("font-color").value;
+
+  let expires = new Date();
+  expires.setDate(expires.getDate() + 30);
+
+  document.cookie =
+    `fontsize=${encodeURIComponent(fontSize)}; expires=${expires.toUTCString()}; path=/`;
+
+  document.cookie =
+    `fontcolor=${encodeURIComponent(fontColor)}; expires=${expires.toUTCString()}; path=/`;
+});
+
