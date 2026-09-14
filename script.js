@@ -24,7 +24,7 @@ document.documentElement.style.setProperty("--fontsize",fontSize + "px");
 }
 
 if (fontColor) {
-  document.body.style.color = fontColor;
+  document.documentElement.style.setProperty("--fontcolor", fontColor);
 }
 
 
